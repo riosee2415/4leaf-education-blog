@@ -1,24 +1,20 @@
 import express from "express";
+import dotenv from "dotenv";
 
 const app = express();
 
+dotenv.config();
+
+// 1. 확장자를 .pug로 검색한다.
+// 2.  "views" 폴더를 default경로로 자동 인식한다.
 app.set("view engine", "pug");
 
-app.get("/pug", (req, res) => {
-  res.render("test");
-});
-app.get("/pug2", (req, res) => {
-  res.render("test2");
-});
-
 app.get("/", (req, res) => {
-  res.send("Hello Node");
-  // C#
+  res.render("home");
 });
 
-app.get("/gh", (req, res) => {
-  res.send("This page is GH page!!");
-  // html file
+app.get("/post", (req, res) => {
+  res.render("post");
 });
 
-app.listen(3000, () => console.log("server start"));
+app.listen(process.env.PORT, () => console.log("server start"));

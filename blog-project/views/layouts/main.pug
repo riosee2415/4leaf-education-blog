@@ -1,11 +1,13 @@
-include ../mixins/menuList
+include ../mixins/header
+include ../mixins/footer
 
 doctype html
 html
     head
-        title MyBlog
+        title myBlog
     body
-        h1.title Hello My blog
-        +menuList
-        main 
-            block content
+        +header
+
+        block content
+
+        +footer
